@@ -64,12 +64,35 @@ rm -rf teaser
 for i in teaser* ; do mv "$i" "${i/IMG/}" ; done
 
 
-exit
+# Dump the thumbs back in the main directory so you don't need to FTP up things from both directories
+cp thumbs/* ./
+
+
+# automatically generate HTML for gallery viewer and teaser, dump it to stdout
+echo ""
+if [ "$SUBFOLDER" == "" ]; then
+	echo "<img src='/Imaging/stories/teaser_$NAME${TEASER/IMG/}' border='0' align='left' hspace=6>"
+else
+	echo "<img src='/Imaging/stories/$SUBFOLDER/teaser_$NAME${TEASER/IMG/}' border='0' align='left' hspace=6>"
+fi
+echo ""
+echo ""
+echo ""
+
+echo "<p align='center'>"
+if [ "$SUBFOLDER" == "" ]; then
+	for i in $NAME*.JPG ; do echo "<a href=\"javascript:galImage('/$i')\"><img src='/Imaging/stories/tn_$i' alt='${i/.JPG/}' border='0'></a>" ; done
+else
+	for i in $NAME*.JPG ; do echo "<a href=\"javascript:galImage('/$SUBFOLDER/$i')\"><img src='/Imaging/stories/$SUBFOLDER/tn_$i' alt='${i/.JPG/}' border='0'></a>" ; done
+
+fi
+echo "</p>"
+
+
 
 ## TODO
 # properly use a separate configuration file
 # automatically FTP all files to server, using $subfolder and FTP data
-# automatically generate HTML for gallery viewer and teaser, dump it to stdout
 # automatic photo proportions detection (instead of only working for uncropped pictures from my camera)
 
 
