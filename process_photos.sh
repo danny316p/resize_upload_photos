@@ -27,7 +27,8 @@ fi
 
 # create teaser-resized photo - we'll rename it later
 mkdir teaser
-mogrify -path ./teaser -thumbnail 180x120 $TEASER
+# These are MAXIMUM sizes. 180x120 is correct for Dan's camera
+mogrify -path ./teaser -thumbnail 500x120 $TEASER
 if [ $V -gt 0 ]; then
 	ls teaser
 fi
@@ -45,7 +46,8 @@ fi
 mkdir thumbs
 
 # create thumbnail-resized photos in "$name/thumbs/"
-mogrify -path ./thumbs -thumbnail 240x160 *.JPG
+# These are MAXIMUM sizes. 240x160 is correct for Dan's camera
+mogrify -path ./thumbs -thumbnail 1000x160 *.JPG
 
 # rename all thumbnails to start with tn_
 cd thumbs
@@ -93,7 +95,6 @@ echo "</p>"
 ## TODO
 # properly use a separate configuration file
 # automatically FTP all files to server, using $subfolder and FTP data
-# automatic photo proportions detection (instead of only working for uncropped pictures from my camera)
 
 
 
