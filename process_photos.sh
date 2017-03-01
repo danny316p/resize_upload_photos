@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #Load config file as variables
 # read in a config file specifying FTP data, $teaser (name of teaser image), $name (prepend string for filenames), $subfolder (if applicable - such as "Toy_Fair_2017")
