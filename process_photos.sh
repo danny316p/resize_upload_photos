@@ -7,6 +7,7 @@ source ./process_photos.cfg
 
 if [ $V -gt 0 ]; then
 	echo "loaded in NAME=$NAME TEASER=$TEASER SUBFOLDER=$SUBFOLDER V=$V"
+	echo "loaded in FTP_SERVER=$FTP_SERVER FTP_USERNAME=$FTP_USERNAME FTP_PASSWORD=$FTP_PASSWORD FTP_PATH=$FTP_PATH"
 fi
 
 # create "$name" folder
