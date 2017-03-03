@@ -13,6 +13,9 @@ fi
 # create "$name" folder
 mkdir $NAME
 
+# fix anything that's .jpg instead of .JPG
+for x in *.jpg; do mv "$x" "${x%.jpg}.JPG"; done
+
 # copy all photos to "$name" (don't risk damaging the originals)
 cp *.JPG $NAME/
 
