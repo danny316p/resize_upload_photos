@@ -68,7 +68,7 @@ for i in teaser* ; do mv "$i" "${i/IMG/}" ; done
 
 # Dump the thumbs back in the main directory so you don't need to FTP up things from both directories
 cp thumbs/* ./
-
+rm -rf thumbs
 
 # automatically generate HTML for gallery viewer and teaser, dump it to stdout
 echo ""
