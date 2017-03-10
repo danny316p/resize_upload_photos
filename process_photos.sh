@@ -68,6 +68,23 @@ fi
 
 cd ..
 
+##Handle creating 1000-wide resized photos
+# create "$name/midsized"
+mkdir midsized
+
+# create midsized-resized photos in "$name/midsized/"
+# These are MAXIMUM sizes. 1000x666 is correct for Dan's camera
+mogrify -path ./midsized -thumbnail 1000x1000 *.JPG
+
+# rename all midsized pics to start with m_
+cd midsized
+for i in *.JPG ; do mv "$i" "m_$i" ; done
+
+if [ $V -gt 0 ]; then
+	ls
+fi
+cd ..
+
 
 ## Move all the images back into the main directory to simplify uploading
 # teaser (which also needs a rename here)
@@ -79,6 +96,11 @@ rm -rf teaser
 # thumbs
 cp thumbs/* ./
 rm -rf thumbs
+
+# midsized
+cp midsized/* ./
+rm -rf midsized
+
 
 # automatically generate HTML for gallery viewer and teaser, dump it to stdout
 echo ""
