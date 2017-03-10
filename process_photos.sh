@@ -32,6 +32,7 @@ if [ $V -gt 0 ]; then
 	echo "in folder $NAME\n"
 fi
 
+## Handle teaser (first, so that the configured filename is correct)
 # create teaser-resized photo - we'll rename it later
 mkdir teaser
 # These are MAXIMUM sizes. 180x120 is correct for Dan's camera
@@ -49,6 +50,7 @@ if [ $V -gt 0 ]; then
 	ls
 fi
 
+## Handle thumbs
 # create "$name/thumbs"
 mkdir thumbs
 
@@ -67,13 +69,14 @@ fi
 cd ..
 
 
+## Move all the images back into the main directory to simplify uploading
+# teaser (which also needs a rename here)
 # move / rename teaser-resized photo teaser_$teaser
 mv teaser/$TEASER teaser_$NAME$TEASER
-rm -rf teaser
 for i in teaser* ; do mv "$i" "${i/IMG/}" ; done
+rm -rf teaser
 
-
-# Dump the thumbs back in the main directory so you don't need to FTP up things from both directories
+# thumbs
 cp thumbs/* ./
 rm -rf thumbs
 
