@@ -126,7 +126,7 @@ echo "</p>"
 
 ## TODO
 # automatically FTP all files to server, using $subfolder and FTP data
-
-
+# Correctly handle images rotated 90 degrees
+# Add watermarks to midsized, original-sized photos
 
 
