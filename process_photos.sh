@@ -126,7 +126,6 @@ echo "</p>"
 
 ## TODO
 # automatically FTP all files to server, using $subfolder and FTP data
-# Correctly handle images rotated 90 degrees
 # Add watermarks to midsized, original-sized photos
 # Get new gallery viewer with configurable size options
   # adjust code generation to use the new viewer
