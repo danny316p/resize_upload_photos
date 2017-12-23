@@ -36,7 +36,7 @@ fi
 # create teaser-resized photo - we'll rename it later
 mkdir teaser
 # These are MAXIMUM sizes. 180x120 is correct for Dan's camera
-mogrify -path ./teaser -thumbnail 500x120 $TEASER
+mogrify -path ./teaser -auto-orient -thumbnail 500x120 $TEASER
 if [ $V -gt 0 ]; then
 	ls teaser
 fi
@@ -56,7 +56,7 @@ mkdir thumbs
 
 # create thumbnail-resized photos in "$name/thumbs/"
 # These are MAXIMUM sizes. 240x160 is correct for Dan's camera
-mogrify -path ./thumbs -thumbnail 1000x160 *.JPG
+mogrify -path ./thumbs -auto-orient -thumbnail 1000x160 *.JPG
 
 # rename all thumbnails to start with tn_
 cd thumbs
@@ -74,7 +74,7 @@ mkdir midsized
 
 # create midsized-resized photos in "$name/midsized/"
 # These are MAXIMUM sizes. 1000x666 is correct for Dan's camera
-mogrify -path ./midsized -thumbnail 1000x1000 *.JPG
+mogrify -path ./midsized -auto-orient -thumbnail 1000x1000 *.JPG
 
 # rename all midsized pics to start with m_
 cd midsized
