@@ -29,7 +29,7 @@ cp *.JPG $NAME/
 # enter $name directory
 cd $NAME
 if [ $V -gt 0 ]; then
-	echo "in folder $NAME\n"
+	echo "in folder $NAME"
 fi
 
 ## Handle teaser (first, so that the configured filename is correct)
