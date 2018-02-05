@@ -76,15 +76,17 @@ mkdir midsized
 # These are MAXIMUM sizes. 1000x666 is correct for Dan's camera
 mogrify -path ./midsized -auto-orient -thumbnail 1000x1000 *.JPG
 
-# rename all midsized pics to start with m_
+# rename all midsized pics to start with m_ (while adding watermarks)
 cd midsized
-for i in *.JPG ; do mv "$i" "m_$i" ; done
+for i in *.JPG ; do composite -gravity SouthEast -geometry +10+10 $WATERMARK_IMAGE "$i" "m_$i"; done
 
 if [ $V -gt 0 ]; then
 	ls
 fi
 cd ..
 
+# with all the other image sizes ready, we can add watermarks to the full-sized images
+for i in $NAME*.JPG ; do composite -gravity SouthEast -geometry +10+10 $WATERMARK_IMAGE "$i" "$i"; done
 
 ## Move all the images back into the main directory to simplify uploading
 # teaser (which also needs a rename here)
@@ -98,7 +100,7 @@ cp thumbs/* ./
 rm -rf thumbs
 
 # midsized
-cp midsized/* ./
+cp midsized/m_* ./
 rm -rf midsized
 
 
@@ -126,7 +128,6 @@ echo "</p>"
 
 ## TODO
 # automatically FTP all files to server, using $subfolder and FTP data
-# Add watermarks to midsized, original-sized photos
 # Get new gallery viewer with configurable size options
   # adjust code generation to use the new viewer
 #frontpage remake/cleanup?
