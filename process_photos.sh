@@ -117,9 +117,9 @@ echo ""
 
 echo "<p align='center'>"
 if [ "$SUBFOLDER" == "" ]; then
-	for i in $NAME*.JPG ; do echo "<a href=\"javascript:galImage('/$i')\"><img src='/Imaging/stories/tn_$i' alt='${i/.JPG/}' border='0'></a>" ; done
+	for i in $NAME*.JPG ; do echo "<a href=\"javascript:galImage('/m_$i')\"><img src='/Imaging/stories/tn_$i' alt='m_${i/.JPG/}' border='0'></a>" ; done
 else
-	for i in $NAME*.JPG ; do echo "<a href=\"javascript:galImage('/$SUBFOLDER/$i')\"><img src='/Imaging/stories/$SUBFOLDER/tn_$i' alt='${i/.JPG/}' border='0'></a>" ; done
+	for i in $NAME*.JPG ; do echo "<a href=\"javascript:galImage('/$SUBFOLDER/m_$i')\"><img src='/Imaging/stories/$SUBFOLDER/tn_$i' alt='m_${i/.JPG/}' border='0'></a>" ; done
 
 fi
 echo "</p>"
