@@ -92,7 +92,7 @@ for i in $NAME*.JPG ; do composite -gravity SouthEast -geometry +10+10 $WATERMAR
 # teaser (which also needs a rename here)
 # move / rename teaser-resized photo teaser_$teaser
 mv teaser/$TEASER teaser_$NAME$TEASER
-for i in teaser* ; do mv "$i" "${i/IMG/}" ; done
+for i in teaser_* ; do mv "$i" "${i/IMG/}" ; done
 rm -rf teaser
 
 # thumbs
