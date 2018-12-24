@@ -78,7 +78,7 @@ mogrify -path ./midsized -auto-orient -thumbnail 1000x1000 *.JPG
 
 # rename all midsized pics to start with m_ (while adding watermarks)
 cd midsized
-for i in *.JPG ; do composite -gravity SouthEast -geometry +10+10 $WATERMARK_IMAGE "$i" "m_$i"; done
+for i in *.JPG ; do composite -gravity SouthEast -geometry +10+0 $WATERMARK_IMAGE "$i" "m_$i"; done
 
 if [ $V -gt 0 ]; then
 	ls
@@ -86,7 +86,7 @@ fi
 cd ..
 
 # with all the other image sizes ready, we can add watermarks to the full-sized images
-for i in $NAME*.JPG ; do composite -gravity SouthEast -geometry +10+10 $WATERMARK_IMAGE "$i" "$i"; done
+for i in $NAME*.JPG ; do composite -gravity SouthEast -geometry +10+0 $WATERMARK_IMAGE "$i" "$i"; done
 
 ## Move all the images back into the main directory to simplify uploading
 # teaser (which also needs a rename here)
